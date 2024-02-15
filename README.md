@@ -4,7 +4,7 @@ Download the Programm over [APP Installer Easy](https://appinstalleasy.netlify.a
 
 ##Before you can Download the APK
 
-Before you can Install the APK, you Mist use a HTML Code snippet, use this:
+Before you can Install the APK, you Must use a HTML Code snippet, use this:
 
 ```html
 <a href=""><button>Download</button></a>
