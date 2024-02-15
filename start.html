@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined HTML</title>
+</head>
+<body>
+    <div id="uploadApp" style="display:block;">
+        <h1>Datei hochladen (.app)</h1>
+        <input type="file" id="appFileInput" accept=".app">
+        <button onclick="convertToTxt()">Weiter</button>
+    </div>
+
+    <div id="uploadTxt" style="display:none;">
+        <h1>Datei hochladen (.txt)</h1>
+        <input type="file" id="txtFileInput" accept=".txt">
+        <button onclick="displayTxtContent()">Weiter</button>
+    </div>
+
+    <div id="showTxtContent" style="display:none;">
+        <h1>Angezeigter Textinhalt</h1>
+        <textarea id="txtContent" rows="5" cols="50" readonly></textarea><br>
+        <button onclick="copyTxtContent()">In Zwischenablage kopieren</button>
+        <button onclick="showHtmlCodeInput()">HTML-Code eingeben</button>
+    </div>
+
+    <div id="htmlCodeInput" style="display:none;">
+        <h1>HTML-Code eingeben</h1>
+        <input type="text" id="htmlInput" size="50"><br>
+        <button onclick="showHtmlCode()">Ausführen</button>
+    </div>
+
+    <div id="htmlCode" style="display:none;">
+        <h1>HTML-Code Vorschau</h1>
+        <iframe id="htmlFrame" width="100%" height="300px"></iframe>
+    </div>
+
+    <div id="download" style="display:none;">
+        <h1>Download</h1>
+        <button onclick="downloadFile()">Download</button>
+    </div>
+
+    <script>
+        function convertToTxt() {
+            const appFileInput = document.getElementById('appFileInput');
+            const appFile = appFileInput.files[0];
+            if (appFile) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const appUrl = event.target.result;
+                    // Hier kommt der Code, um die .app-Datei in eine .txt-Datei umzuwandeln und herunterzuladen
+                    // Beispiel:
+                    // const txtUrl = convertAppToTxtAndDownload(appUrl);
+                    
+                    // Simuliertes Beispiel: Nehmen wir an, die .app-Datei wird nicht umgewandelt und bleibt gleich
+                    const txtUrl = appUrl;
+                    const a = document.createElement('a');
+                    a.href = txtUrl;
+                    a.download = 'converted.txt';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    document.getElementById('uploadApp').style.display = 'none';
+                    document.getElementById('uploadTxt').style.display = 'block';
+                }
+                reader.readAsDataURL(appFile);
+            } else {
+                alert('Bitte wählen Sie eine .app-Datei aus.');
+            }
+        }
+
+        function displayTxtContent() {
+            const txtFileInput = document.getElementById('txtFileInput');
+            const txtFile = txtFileInput.files[0];
+            if (txtFile) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const txtContent = event.target.result;
+                    document.getElementById('txtContent').value = txtContent;
+                    document.getElementById('uploadTxt').style.display = 'none';
+                    document.getElementById('showTxtContent').style.display = 'block';
+                }
+                reader.readAsText(txtFile);
+            } else {
+                alert('Bitte wählen Sie eine .txt-Datei aus.');
+            }
+        }
+
+        function copyTxtContent() {
+            const txtContent = document.getElementById('txtContent').value;
+            navigator.clipboard.writeText(txtContent).then(function() {
+                alert('Textinhalt wurde in die Zwischenablage kopiert.');
+            }, function() {
+                alert('Fehler beim Kopieren des Textinhalts.');
+            });
+        }
+
+        function showHtmlCodeInput() {
+            document.getElementById('showTxtContent').style.display = 'none';
+            document.getElementById('htmlCodeInput').style.display = 'block';
+        }
+
+        function showHtmlCode() {
+            const htmlCode = document.getElementById('htmlInput').value;
+            const htmlFrame = document.getElementById('htmlFrame');
+            htmlFrame.srcdoc = htmlCode;
+            document.getElementById('htmlCodeInput').style.display = 'none';
+            document.getElementById('htmlCode').style.display = 'block';
+        }
+
+        function downloadFile() {
+            const downloadUrl = localStorage.getItem('downloadUrl');
+            if (downloadUrl) {
+                window.location.href = downloadUrl;
+            } else {
+                alert('Die Download-URL wurde nicht gefunden.');
+            }
+        }
+    </script>
+</body>
+</html>
