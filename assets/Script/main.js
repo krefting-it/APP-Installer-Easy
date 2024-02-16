@@ -11,3 +11,7 @@ function bundle2() {
 function bundle3() {
     alert('Bundle Version 3 is not available')
 }
+
+function discord() {
+    alert('You Join now oir Discord')
+}
