@@ -12,6 +12,10 @@ Before you can Install the APK, you Must use a HTML Code snippet, use this:
 
 Copy the Text from the Installer Programm in the "" Position.
 
-### Copyright
+### Over the Site
 
-© by Krefting-IT Development
+You can turn .app files into .APK files and create your own .app files via the page
+
+#### Copyright
+
+© by Krefting Development
