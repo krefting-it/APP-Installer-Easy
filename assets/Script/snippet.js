@@ -1,5 +1,5 @@
 function copyText() {
-    fetch('deine_datei.txt')
+    fetch('snippet.txt')
     .then(response => response.text())
     .then(text => {
         navigator.clipboard.writeText(text)
