@@ -1,8 +1,8 @@
-#Download
+# Download and Use
 
 Download the Programm over [APP Installer Easy](https://appinstallereasy.netlify.app)
 
-##Before you can Download the APK
+## Before you can Download the APK
 
 Before you can Install the APK, you Must use a HTML Code snippet, use this:
 
@@ -12,6 +12,6 @@ Before you can Install the APK, you Must use a HTML Code snippet, use this:
 
 Copy the Text from the Installer Programm in the "" Position.
 
-###Copyright
+### Copyright
 
 © by Krefting-IT Development
