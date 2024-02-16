@@ -1,5 +1,3 @@
-alert('Welcome by App installer Easy');
-
 function bundle1() {
     alert('You Download now Bundle Version 1')
 }
@@ -15,3 +13,5 @@ function bundle3() {
 function discord() {
     alert('You Join now oir Discord')
 }
+
+document.write('<p>© by Krefting</p>');
