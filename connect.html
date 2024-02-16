@@ -1,8 +1,61 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="initial-scale=1">
-        <title>Connect</title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirecting...</title>
+<style>
+  #instructions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 24px;
+  }
+  #progress-bar {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 20px;
+    border: 1px solid #000;
+  }
+  #progress {
+    width: 0%;
+    height: 100%;
+    background-color: green;
+  }
+</style>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div id="instructions">
+  <p>Here you can create your own .app file. Enter the direct URL for the APK file download, and you will receive a document named app.txt. Upload it here, give the app a name, and then the .app file will be ejected.</p>
+</div>
+
+<div id="progress-bar">
+  <div id="progress"></div>
+</div>
+
+<script>
+  setTimeout(function() {
+    document.getElementById("instructions").innerHTML = "";
+    var progress = document.getElementById("progress");
+    var width = 0;
+    var interval = setInterval(function() {
+      if (width >= 100) {
+        clearInterval(interval);
+        window.location.replace("create.html"); // Replace "redirect_page.html" with the actual URL you want to redirect to
+      } else {
+        width++;
+        progress.style.width = width + "%";
+      }
+    }, 300);
+  }, 60000);
+</script>
+
+</body>
 </html>
