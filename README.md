@@ -1,6 +1,6 @@
 # Download and Use
 
-Download the Programm over [APP Installer Easy](https://appinstallereasy.netlify.app)
+Download and Use the Programm over [APP Installer Easy](https://appinstallereasy.netlify.app)
 
 ## Before you can Download the APK
 
