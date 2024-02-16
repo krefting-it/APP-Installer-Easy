@@ -1,7 +1,7 @@
 function downloadTxt() {
   var url = document.getElementById("urlInput").value;
   var filename = "app.txt";
-  var fileContent = "Downloaded URL: " + url;
+  var fileContent = "" + url;
   
   var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
   var downloadLink = document.createElement("a");
