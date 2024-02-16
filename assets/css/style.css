@@ -3,10 +3,12 @@ body {
 }
 
 h1 {
+    text-align: center;
     color: #ffd700;
 }
 
 p {
+    text-align: center;
     color: #C0C0C0;
 }
 
